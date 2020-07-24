@@ -8,7 +8,7 @@ class FilmPoster extends Component {
   }
 
   componentDidMount () {
-    axios.get('http://www.omdbapi.com/?apikey=7d40e9d8&i=tt2294629')
+    axios.get('https://www.omdbapi.com/?apikey=7d40e9d8&i=tt2294629')
     .then(res => {
       this.setState({posters: res.data})
       // console.log(res);
