@@ -4,28 +4,25 @@ import axios from 'axios';
 
 class FilmPoster extends Component {
   state = {
-    filmPoster: {}
+    posters: []
   }
 
   componentDidMount () {
     axios.get('http://www.omdbapi.com/?apikey=7d40e9d8&i=tt2294629')
-    .then(res => res.data)
     .then(res => {
-      this.setState = {filmPoster: res};
+      this.setState({posters: res.data})
+      // console.log(res);
     });
   }
 
-
-
-  // Axios React tutorial
-
-
-
   render() {
+    const posters = this.state.posters.Title
+    console.log(posters);
     return (
       <div className="App">
         <h1>Cinema Hunter</h1>
         <input type="text" placeholder="Film Name"/>
+        <h2>{posters}</h2>
       </div>
     );
   }
