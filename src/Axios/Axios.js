@@ -6,19 +6,14 @@ import Input from '../InputHandler/InputHandler';
 class FilmPoster extends Component {
   state = {
     posters: [],
-    input: []
+    search: ''
   }
 
   componentDidMount () {
-    axios.get(`https://www.omdbapi.com/?apikey=7d40e9d8&t=${Input.input}`)
+    axios.get(`https://www.omdbapi.com/?apikey=7d40e9d8&t=${this.props.movie}`)
     .then(res => {
       this.setState({posters: res.data})
-      // console.log(input);
     });
-  }
-
-  inputRetrieve () {
-    axios.get(``)
   }
 
   render() {
