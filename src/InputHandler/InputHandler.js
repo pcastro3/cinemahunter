@@ -7,45 +7,35 @@ class Input extends Component {
 
   state = {
     posters: [],
-    search: 'prisoners'
+    search: ''
   }
 
-  searchFilm = event => {
-    axios
-      .get(`https://www.omdbapi.com/?apikey=7d40e9d8&t=${this.state.search}`)
-      .then(res => res.data)
-      .then(res => {
-
-        // const movie = this.state.search
-        // this.setState({
-        //   movie
-        // })
-      })
-      console.log('Was Submitted');
-
-  }
+  // searchFilm = event => {
+  //   event.preventDefault();
+  //
+  //   // this.setState({
+  //   //   search: event.target.value
+  //   // })
+  //
+  //   // axios
+  //   //   .get(`https://www.omdbapi.com/?apikey=7d40e9d8&t=${this.state.search}`)
+  //   //   .then(res => res.data)
+  //   //   console.log('Was Submitted');
+  // }
 
 
-  handleSearch = event => {
-    this.setState({
-      poster: [],
-      search: event.target.value
-    })
-  }
+
 
 
     // TAKE INPUT FROM USER (MOVIE NAME), THEN USE IT TO FETCH MOVIE DETAILS
 
     render () {
 
-      console.log(this.state.search);
+      // console.log(this.state.search);
 
       return (
       <div className='App'>
-        <form action="" onSubmit={this.searchFilm}>
-          <input type="text"  onChange={this.handleSearch} placeholder="Film Name"/>
-          <button type="submit">Submit</button>
-        </form>
+
 
       </div>
     )
