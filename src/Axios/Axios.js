@@ -22,7 +22,7 @@ class FilmPoster extends Component {
       if(this.state.posters.Response === "False") {
         alert('Unable to find Film. Try again =)');
       }
-  } 
+  }
 
   handleSearch = event => {
     this.setState({
