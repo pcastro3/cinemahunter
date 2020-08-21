@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import axios from 'axios';
-import styled from 'styled-components';
+import { StyledH1 } from '../StyledComponent/StyledComponent';
 
 class FilmPoster extends Component {
 
@@ -40,7 +40,7 @@ class FilmPoster extends Component {
     if(this.state.posters.Response === "False") {
       return (
         <div className="App">
-          <h1>Cinema Hunter</h1>
+          <StyledH1>Cinema Hunter</StyledH1>
           <form action="" onSubmit={this.searchFilm}>
             <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
             <button type="submit">Submit</button>
@@ -66,7 +66,7 @@ class FilmPoster extends Component {
 
     return (
       <div className="App">
-        <h1>Cinema Hunter</h1>
+        <StyledH1>Cinema Hunter</StyledH1>
         <form action="" onSubmit={this.searchFilm}>
           <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
           <button type="submit">Submit</button>
