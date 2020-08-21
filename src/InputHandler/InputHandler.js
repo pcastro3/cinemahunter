@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import FilmPoster from '../Axios/Axios';
 import '../App.css';
 
 class Input extends Component {
