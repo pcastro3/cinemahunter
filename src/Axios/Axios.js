@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import axios from 'axios';
-import { StyledH1 } from '../StyledComponent/StyledComponent';
+import { StyledH1, StyledH2, StyledH3, StyledDiv, Details, Plot, Block1, Block2 } from '../StyledComponent/StyledComponent';
 
 class FilmPoster extends Component {
 
@@ -45,7 +45,7 @@ class FilmPoster extends Component {
             <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
             <button type="submit">Submit</button>
           </form>
-          <p>{unfound}</p>
+          <StyledH2>{unfound}</StyledH2>
         </div>
       )
     }
@@ -71,19 +71,28 @@ class FilmPoster extends Component {
           <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
           <button type="submit">Submit</button>
         </form>
-        <div>
-          <h2>{title}</h2>
-          <h2>{score}</h2>
-          <img src={poster} alt=""/>
-          <h3>{director}</h3>
-          <h3>{genre}</h3>
-          <h3>{cast}</h3>
-          <h3>{rated}</h3>
-          <h3>{awards}</h3>
-          <h3>{date}</h3>
-          <h3>{runtime}</h3>
-          <p>{plot}</p>
-        </div>
+        <StyledDiv>
+          <div>
+            <img src={poster} alt=""/>
+          </div>
+          <Details>
+            <Block1>
+              <StyledH2>{title}</StyledH2>
+              <StyledH2>{score}</StyledH2>
+              <StyledH3>{director}</StyledH3>
+              <StyledH3>{genre}</StyledH3>
+              <StyledH3>{cast}</StyledH3>
+              <StyledH3>{rated}</StyledH3>
+              <StyledH3>{date}</StyledH3>
+              <StyledH3>{runtime}</StyledH3>
+            </Block1>
+            <Block2>
+              <StyledH3>{awards}</StyledH3>
+              <Plot>{plot}</Plot>
+            </Block2>
+          </Details>
+
+        </StyledDiv>
       </div>
     )
   }
