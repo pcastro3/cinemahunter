@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import axios from 'axios';
-import { StyledH1, StyledH2, StyledH3, Form, Error, StyledDiv, Details, Plot, Block1, Block2, Noms, Image } from '../StyledComponent/StyledComponent';
+import { StyledH1, Input, Button, StyledH2, StyledH3, Weight, Strong, Form, Error, StyledDiv, Details, Plot, Block0, Block1, Block2, Noms, Image } from '../StyledComponent/StyledComponent';
 
 class FilmPoster extends Component {
 
@@ -44,8 +44,7 @@ class FilmPoster extends Component {
         <div className="App">
           <StyledH1>Cinema Hunter</StyledH1>
           <Form action="" onSubmit={this.searchFilm}>
-            <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
-            <button type="submit">Submit</button>
+            <Input type="text" className='fa fa-search' onChange={this.handleSearch} placeholder="Film Name"/>
           </Form>
           <Error>{unfound}</Error>
         </div>
@@ -76,8 +75,7 @@ class FilmPoster extends Component {
         <div className='App'>
           <StyledH1>Cinema Hunter</StyledH1>
           <Form action="" onSubmit={this.searchFilm}>
-            <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
-            <button type="submit">Submit</button>
+            <Input type="text" className='fa fa-search' onChange={this.handleSearch} placeholder="Film Name"/>
           </Form>
         </div>
       )
@@ -94,28 +92,59 @@ class FilmPoster extends Component {
           <div className="App">
             <StyledH1>Cinema Hunter</StyledH1>
             <Form action="" onSubmit={this.searchFilm}>
-              <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
-              <button type="submit">Submit</button>
+              <Input type="text" className='fa fa-search' onChange={this.handleSearch} placeholder="Film Name"/>
             </Form>
             <StyledDiv>
               <Image>
                 <img src={poster} alt=""/>
               </Image>
               <Details>
-                <Block1>
+
+                <Block0>
                   <StyledH2>{title}</StyledH2>
-                  <StyledH2>IMDB Rating: {score}/10</StyledH2>
-                  <StyledH3>Director: {director}</StyledH3>
-                  <StyledH3>{genre}</StyledH3>
-                  <StyledH3>{cast}</StyledH3>
-                  <StyledH3>Rated {rated}</StyledH3>
-                  <StyledH3>Year of Release: {date}</StyledH3>
-                  <StyledH3>{runtime}</StyledH3>
+                  <Weight>
+                    <Strong>IMDB Rating: </Strong>
+                    {score}/10
+                  </Weight>
+                </Block0>
+
+                <Block1>
+                  <Weight>
+                    <Strong>Director: </Strong>
+                    {director}
+                  </Weight>
+
+                  <Weight>
+                    <Strong>Genre: </Strong>
+                    {genre}
+                  </Weight>
+
+                  <Weight>
+                    <Strong>Cast: </Strong>
+                    {cast}
+                  </Weight>
+
+                  <Weight>
+                    <Strong>Rated: </Strong>
+                    {rated}
+                  </Weight>
+
+                  <Weight>
+                    <Strong>Year of Release: </Strong>
+                    {date}
+                  </Weight>
+
+                  <Weight>
+                    <Strong>Runtime: </Strong>
+                    {runtime}
+                  </Weight>
                 </Block1>
+
                 <Block2>
                   <Noms>{awards}</Noms>
                   <Plot>{plot}</Plot>
                 </Block2>
+
               </Details>
             </StyledDiv>
           </div>
