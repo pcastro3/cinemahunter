@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import axios from 'axios';
-import { StyledH1, StyledH2, StyledH3, StyledDiv, Details, Plot, Block1, Block2 } from '../StyledComponent/StyledComponent';
+import { StyledH1, StyledH2, StyledH3, Form, Error, StyledDiv, Details, Plot, Block1, Block2, Noms, Image } from '../StyledComponent/StyledComponent';
 
 class FilmPoster extends Component {
 
@@ -35,20 +35,24 @@ class FilmPoster extends Component {
 
   render() {
 
+    // HANDLE ERROR
+
     let unfound = 'Unable to find Film. Try again =)'
 
     if(this.state.posters.Response === "False") {
       return (
         <div className="App">
           <StyledH1>Cinema Hunter</StyledH1>
-          <form action="" onSubmit={this.searchFilm}>
+          <Form action="" onSubmit={this.searchFilm}>
             <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
             <button type="submit">Submit</button>
-          </form>
-          <StyledH2>{unfound}</StyledH2>
+          </Form>
+          <Error>{unfound}</Error>
         </div>
       )
     }
+
+    // DEFINE DETAILS FROM API
 
     const info = this.state.posters;
 
@@ -64,37 +68,59 @@ class FilmPoster extends Component {
     const score = info.imdbRating;
     const title = info.Title;
 
-    return (
-      <div className="App">
-        <StyledH1>Cinema Hunter</StyledH1>
-        <form action="" onSubmit={this.searchFilm}>
-          <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
-          <button type="submit">Submit</button>
-        </form>
-        <StyledDiv>
-          <div>
-            <img src={poster} alt=""/>
-          </div>
-          <Details>
-            <Block1>
-              <StyledH2>{title}</StyledH2>
-              <StyledH2>{score}</StyledH2>
-              <StyledH3>{director}</StyledH3>
-              <StyledH3>{genre}</StyledH3>
-              <StyledH3>{cast}</StyledH3>
-              <StyledH3>{rated}</StyledH3>
-              <StyledH3>{date}</StyledH3>
-              <StyledH3>{runtime}</StyledH3>
-            </Block1>
-            <Block2>
-              <StyledH3>{awards}</StyledH3>
-              <Plot>{plot}</Plot>
-            </Block2>
-          </Details>
+    // HIDE BEFORE OUTPUT + OUTPUT DATA
 
-        </StyledDiv>
-      </div>
-    )
+
+    if(!this.state.posters.Response) {
+      return (
+        <div className='App'>
+          <StyledH1>Cinema Hunter</StyledH1>
+          <Form action="" onSubmit={this.searchFilm}>
+            <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
+            <button type="submit">Submit</button>
+          </Form>
+        </div>
+      )
+    }
+
+    // HIDE BEFORE OUPUT ^
+
+
+
+    // OUTPUT DATA
+
+      else {
+        return (
+          <div className="App">
+            <StyledH1>Cinema Hunter</StyledH1>
+            <Form action="" onSubmit={this.searchFilm}>
+              <input type="text" onChange={this.handleSearch} placeholder="Film Name"/>
+              <button type="submit">Submit</button>
+            </Form>
+            <StyledDiv>
+              <Image>
+                <img src={poster} alt=""/>
+              </Image>
+              <Details>
+                <Block1>
+                  <StyledH2>{title}</StyledH2>
+                  <StyledH2>IMDB Rating: {score}/10</StyledH2>
+                  <StyledH3>Director: {director}</StyledH3>
+                  <StyledH3>{genre}</StyledH3>
+                  <StyledH3>{cast}</StyledH3>
+                  <StyledH3>Rated {rated}</StyledH3>
+                  <StyledH3>Year of Release: {date}</StyledH3>
+                  <StyledH3>{runtime}</StyledH3>
+                </Block1>
+                <Block2>
+                  <Noms>{awards}</Noms>
+                  <Plot>{plot}</Plot>
+                </Block2>
+              </Details>
+            </StyledDiv>
+          </div>
+        )
+      }
   }
 }
 
