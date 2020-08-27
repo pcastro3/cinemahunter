@@ -48,8 +48,13 @@ body {
   animation-name: fadeIn;
 }
 
+.icon {
+  padding: .6rem;
+  color: slategrey;
+}
+
 .App {
-  /* text-align: center; */
+  text-align: center;
 }
 
 .App-header {
