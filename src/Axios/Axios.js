@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import axios from 'axios';
-import { StyledH1, Input, StyledH2, Weight, Strong, Form, Error, StyledDiv, Details, Plot, Block0, Block1, Block2, Noms, Image } from '../StyledComponent/StyledComponent';
+import { StyledH1, Input, StyledH2, Weight, Strong, Form, Error, StyledDiv, Details, Plot, Block0, Block1, Block2, Noms, Image, LineFix, Shadow } from '../StyledComponent/StyledComponent';
 
 class FilmPoster extends Component {
 
@@ -99,7 +99,7 @@ class FilmPoster extends Component {
             </Form>
             <StyledDiv>
               <Image>
-                <img src={poster} alt=""/>
+                <Shadow src={poster} alt=""/>
               </Image>
               <Details>
 
@@ -114,17 +114,17 @@ class FilmPoster extends Component {
                 <Block1>
                   <Weight>
                     <Strong>Director: </Strong>
-                    {director}
+                    <LineFix>{director}</LineFix>
                   </Weight>
 
                   <Weight>
                     <Strong>Genre: </Strong>
-                    {genre}
+                    <LineFix>{genre}</LineFix>
                   </Weight>
 
                   <Weight>
                     <Strong>Cast: </Strong>
-                    {cast}
+                    <LineFix>{cast}</LineFix>
                   </Weight>
 
                   <Weight>

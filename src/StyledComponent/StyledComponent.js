@@ -26,6 +26,12 @@ export const Input = styled.input`
   border: none;
   padding-right: 30rem;
   outline: none;
+
+  @media screen and (min-width: 320px) {
+    width: 60vw;
+    padding-right: 4rem;
+    border-radius: .2rem;
+  }
 `;
 
 export const StyledDiv = styled.div`
@@ -39,11 +45,24 @@ export const StyledDiv = styled.div`
   background: #ECECEF;
   border-radius: .2rem;
   padding-top: 2.5rem;
+
+  @media screen and (min-width: 320px) {
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Image = styled.div`
   margin-top: 4rem;
   margin-bottom: 14rem;
+
+  @media screen and (min-width: 320px) {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+  }
+`;
+
+export const Shadow = styled.img`
   box-shadow: -19px -15px 26px -13px black;
 `;
 
@@ -51,6 +70,10 @@ export const Details = styled.div`
   margin-left: 1rem;
   border-radius: .3rem;
   line-height: .5rem;
+
+  @media screen and (min-width: 320px) {
+    margin-left: 0rem;
+  }
 `;
 
 export const Block0 = styled.div`
@@ -95,6 +118,10 @@ export const Block1 = styled.div`
   padding: 1rem;
 `;
 
+export const LineFix = styled.p`
+  line-height: 1.6rem;
+`;
+
 export const Block2 = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,6 +131,10 @@ export const Block2 = styled.div`
   padding-top: 1rem;
   padding-left: 1rem;
   width: 60vw;
+
+  @media screen and (min-width: 320px) {
+    width: auto;
+  }
 `;
 
 export const Noms = styled.h3`
@@ -111,6 +142,11 @@ export const Noms = styled.h3`
   font-weight: 500;
   margin-left: 2rem;
   text-align: start;
+
+  @media screen and (min-width: 320px) {
+    line-height: 2rem;
+    margin-right: 2rem;
+  }
 `;
 
 export const Plot = styled.p`
@@ -126,6 +162,7 @@ export const Plot = styled.p`
 export const Error = styled.h2`
   color: lightblue;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 1.8rem;
   text-align: center;
 `;
